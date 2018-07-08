@@ -58,6 +58,11 @@ include(CPack)
 #  set(CMAKE_STATIC_LIBRARY_PREFIX ${CMAKE_INSTALL_PREFIX})
 #endif (WIN32)
 
+if (MSVC)
+  add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+  add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+endif()
+
 ######## Mac OS X
 
 set(CMAKE_MACOSX_RPATH 1)
